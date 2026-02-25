@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cimb7f3nbeit0"]
+
+[ext_resource type="Texture2D" uid="uid://cb1gadjxhkdg5" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sprites/Backgrounds/Default/background_clouds.png" id="1_7r0qe"]
+[ext_resource type="Texture2D" uid="uid://cgh23pchh8h5q" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sprites/Backgrounds/Default/background_solid_sky.png" id="2_qpd8l"]
+[ext_resource type="Texture2D" uid="uid://b2lt0meehpcqk" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sprites/Backgrounds/Default/background_fade_hills.png" id="3_r1dpp"]
+
+[node name="scrollingBackground" type="Node2D" unique_id=1827182102]
+
+[node name="Parallax2Dclouds" type="Parallax2D" parent="." unique_id=238291302]
+repeat_size = Vector2(255, 0)
+autoscroll = Vector2(-30, 0)
+repeat_times = 60
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2Dclouds" unique_id=501256315]
+position = Vector2(-1033, 276)
+texture = ExtResource("1_7r0qe")
+
+[node name="Parallax2Dskyabove" type="Parallax2D" parent="." unique_id=451368989]
+repeat_size = Vector2(255, 0)
+autoscroll = Vector2(-30, 0)
+repeat_times = 60
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2Dskyabove" unique_id=1294388169]
+position = Vector2(1602, -1475)
+scale = Vector2(1, 12.894531)
+texture = ExtResource("2_qpd8l")
+
+[node name="Parallax2Dskybelow" type="Parallax2D" parent="." unique_id=1359034481]
+repeat_size = Vector2(255, 0)
+autoscroll = Vector2(-30, 0)
+repeat_times = 60
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2Dskybelow" unique_id=1102751472]
+position = Vector2(1048, 2890)
+scale = Vector2(1, 17.624998)
+texture = ExtResource("2_qpd8l")
+
+[node name="Parallax2DHills" type="Parallax2D" parent="." unique_id=1081944546]
+scroll_offset = Vector2(0, 477)
+repeat_size = Vector2(255, 0)
+autoscroll = Vector2(-15, 0)
+repeat_times = 60
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2DHills" unique_id=520895115]
+position = Vector2(1157, 28)
+texture = ExtResource("3_r1dpp")

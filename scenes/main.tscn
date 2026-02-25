@@ -1,0 +1,392 @@
+[gd_scene format=4 uid="uid://bevgb188c663h"]
+
+[ext_resource type="PackedScene" uid="uid://cimb7f3nbeit0" path="res://components/scrolling_background.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cins08gxms5w2" path="res://scripts/ui.gd" id="1_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dm4ac08sxg0ib" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-tiles-default.png" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://blbwjq62lcwr3" path="res://art/kenney_ui-pack/PNG/Green/Default/button_rectangle_border.png" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://2eh7huns6e3q" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sprites/Tiles/Default/hud_heart.png" id="4_tefeu"]
+[ext_resource type="Texture2D" uid="uid://daggtuipybckx" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sprites/Tiles/Default/gem_yellow.png" id="5_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://c571i0qqndyt5" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sprites/Tiles/Default/coin_gold.png" id="6_tipki"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
+texture = ExtResource("2_0wfyh")
+texture_region_size = Vector2i(65, 65)
+4:9/0 = 0
+10:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_jyhfs"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_sugp2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyhfs"]
+font_size = 94
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
+font_size = 25
+font_color = Color(5.1608413e-06, 5.160842e-06, 5.1608413e-06, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_choun"]
+font_size = 35
+font_color = Color(5.1608413e-06, 5.160842e-06, 5.1608413e-06, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ya4ey"]
+font_size = 50
+outline_size = 22
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
+font_size = 75
+font_color = Color(0.78, 0, 0, 1)
+outline_size = 40
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o6xl0"]
+font_size = 40
+font_color = Color(1, 1, 0.06666667, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[node name="main" type="Node2D" unique_id=742223341]
+
+[node name="ui" type="Node2D" parent="." unique_id=365051469]
+script = ExtResource("1_o6xl0")
+
+[node name="menu" type="CanvasLayer" parent="ui" unique_id=1233774245]
+
+[node name="scrollingBackground" parent="ui/menu" unique_id=1827182102 instance=ExtResource("1_o5qli")]
+
+[node name="ground" type="Node2D" parent="ui/menu" unique_id=1308887612]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ui/menu/ground" unique_id=185299841]
+position = Vector2(-17, 28)
+tile_map_data = PackedByteArray("AAD//wgAAAAEAAkAAAAAAAgAAAAEAAkAAAABAAgAAAAEAAkAAAACAAgAAAAEAAkAAAADAAgAAAAEAAkAAAAEAAgAAAAEAAkAAAAFAAgAAAAEAAkAAAAGAAgAAAAEAAkAAAAHAAgAAAAEAAkAAAAIAAgAAAAEAAkAAAAJAAgAAAAEAAkAAAAKAAgAAAAEAAkAAAALAAgAAAAEAAkAAAAMAAgAAAAEAAkAAAANAAgAAAAEAAkAAAAOAAgAAAAEAAkAAAAPAAgAAAAEAAkAAAAQAAgAAAAEAAkAAAARAAgAAAAEAAkAAAASAAgAAAAEAAkAAAATAAgAAAAEAAkAAAD//wkAAAAKAAkAAAD//woAAAAKAAkAAAAAAAkAAAAKAAkAAAAAAAoAAAAKAAkAAAABAAkAAAAKAAkAAAABAAoAAAAKAAkAAAACAAkAAAAKAAkAAAACAAoAAAAKAAkAAAADAAkAAAAKAAkAAAADAAoAAAAKAAkAAAAEAAkAAAAKAAkAAAAEAAoAAAAKAAkAAAAFAAkAAAAKAAkAAAAFAAoAAAAKAAkAAAAGAAkAAAAKAAkAAAAGAAoAAAAKAAkAAAAHAAkAAAAKAAkAAAAHAAoAAAAKAAkAAAAIAAkAAAAKAAkAAAAIAAoAAAAKAAkAAAAJAAkAAAAKAAkAAAAJAAoAAAAKAAkAAAAKAAkAAAAKAAkAAAAKAAoAAAAKAAkAAAALAAkAAAAKAAkAAAALAAoAAAAKAAkAAAAMAAkAAAAKAAkAAAAMAAoAAAAKAAkAAAANAAkAAAAKAAkAAAANAAoAAAAKAAkAAAAOAAkAAAAKAAkAAAAOAAoAAAAKAAkAAAAPAAkAAAAKAAkAAAAPAAoAAAAKAAkAAAAQAAkAAAAKAAkAAAAQAAoAAAAKAAkAAAARAAkAAAAKAAkAAAARAAoAAAAKAAkAAAASAAkAAAAKAAkAAAASAAoAAAAKAAkAAAATAAkAAAAKAAkAAAATAAoAAAAKAAkAAAA=")
+tile_set = SubResource("TileSet_jyhfs")
+
+[node name="Label" type="Label" parent="ui/menu" unique_id=585233193]
+offset_left = -3.0
+offset_top = 3.0
+offset_right = 1153.0
+offset_bottom = 400.0
+text = "little mushroom"
+label_settings = SubResource("LabelSettings_jyhfs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mutebutton" type="Node2D" parent="ui/menu" unique_id=891138002]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ui/menu/mutebutton" unique_id=2038529240]
+offset_left = 1.0
+offset_right = 57.0
+offset_bottom = 56.0
+texture = ExtResource("3_sugp2")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="ui/menu/mutebutton/NinePatchRect" unique_id=157765017]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 60.0
+offset_bottom = 56.0
+text = "m"
+label_settings = SubResource("LabelSettings_tbgi4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttonmute" type="Button" parent="ui/menu/mutebutton" unique_id=1086479009]
+offset_right = 58.0
+offset_bottom = 56.0
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
+
+[node name="levelone" type="Node2D" parent="ui/menu" unique_id=1197390171]
+position = Vector2(52, 345)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ui/menu/levelone" unique_id=1314712578]
+offset_left = 1.0
+offset_right = 271.0
+offset_bottom = 91.0
+texture = ExtResource("3_sugp2")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="ui/menu/levelone/NinePatchRect" unique_id=1195833881]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 17.0
+offset_right = 214.0
+offset_bottom = 74.0
+text = "Level One"
+label_settings = SubResource("LabelSettings_choun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttonlevel1" type="Button" parent="ui/menu/levelone" unique_id=2112853972]
+offset_right = 275.0
+offset_bottom = 91.0
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
+
+[node name="leveltwo" type="Node2D" parent="ui/menu" unique_id=66846242]
+position = Vector2(412, 347)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ui/menu/leveltwo" unique_id=357542885]
+offset_left = 1.0
+offset_right = 271.0
+offset_bottom = 91.0
+texture = ExtResource("3_sugp2")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="ui/menu/leveltwo/NinePatchRect" unique_id=682920063]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 17.0
+offset_right = 214.0
+offset_bottom = 74.0
+text = "Level Two"
+label_settings = SubResource("LabelSettings_choun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttonlevel2" type="Button" parent="ui/menu/leveltwo" unique_id=1567369121]
+offset_right = 275.0
+offset_bottom = 91.0
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
+
+[node name="levelthree" type="Node2D" parent="ui/menu" unique_id=1413363404]
+position = Vector2(777, 347)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ui/menu/levelthree" unique_id=845132266]
+offset_left = 1.0
+offset_right = 271.0
+offset_bottom = 91.0
+texture = ExtResource("3_sugp2")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="ui/menu/levelthree/NinePatchRect" unique_id=636452759]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 17.0
+offset_right = 214.0
+offset_bottom = 74.0
+text = "Level Three"
+label_settings = SubResource("LabelSettings_choun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttonlevel3" type="Button" parent="ui/menu/levelthree" unique_id=629060368]
+offset_right = 275.0
+offset_bottom = 91.0
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
+
+[node name="inGame" type="CanvasLayer" parent="ui" unique_id=1781494982]
+visible = false
+
+[node name="hearts" type="Node2D" parent="ui/inGame" unique_id=1953063785]
+
+[node name="normal hearts" type="Node2D" parent="ui/inGame/hearts" unique_id=1147155593]
+
+[node name="h1" type="Sprite2D" parent="ui/inGame/hearts/normal hearts" unique_id=1176732439]
+modulate = Color(0.9607843, 0.9607843, 0.9607843, 1)
+position = Vector2(49, 41)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_tefeu")
+
+[node name="h2" type="Sprite2D" parent="ui/inGame/hearts/normal hearts" unique_id=1494075597]
+position = Vector2(140, 43)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_tefeu")
+
+[node name="h3" type="Sprite2D" parent="ui/inGame/hearts/normal hearts" unique_id=1222362265]
+position = Vector2(236, 41)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_tefeu")
+
+[node name="power hearts" type="Node2D" parent="ui/inGame/hearts" unique_id=238947886]
+visible = false
+
+[node name="h1" type="Sprite2D" parent="ui/inGame/hearts/power hearts" unique_id=2077996185]
+position = Vector2(49, 43)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_o6xl0")
+
+[node name="h2" type="Sprite2D" parent="ui/inGame/hearts/power hearts" unique_id=1374797050]
+position = Vector2(140, 43)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_o6xl0")
+
+[node name="h3" type="Sprite2D" parent="ui/inGame/hearts/power hearts" unique_id=535831591]
+position = Vector2(238, 41)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_o6xl0")
+
+[node name="textcounter" type="Node2D" parent="ui/inGame" unique_id=1296944996]
+
+[node name="Sprite2D" type="Sprite2D" parent="ui/inGame/textcounter" unique_id=1919186737]
+position = Vector2(1056, 31)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_tipki")
+
+[node name="Label" type="Label" parent="ui/inGame/textcounter" unique_id=1027226879]
+offset_left = 912.0
+offset_top = -27.0
+offset_right = 1016.0
+offset_bottom = 86.0
+text = "0"
+label_settings = SubResource("LabelSettings_ya4ey")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="quitbutton" type="Node2D" parent="ui/inGame" unique_id=426205405]
+position = Vector2(1099, -2)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ui/inGame/quitbutton" unique_id=280804928]
+offset_left = 1.0
+offset_right = 57.0
+offset_bottom = 56.0
+texture = ExtResource("3_sugp2")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="ui/inGame/quitbutton/NinePatchRect" unique_id=187884371]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 60.0
+offset_bottom = 56.0
+text = "x"
+label_settings = SubResource("LabelSettings_tbgi4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttonmenu" type="Button" parent="ui/inGame/quitbutton" unique_id=1253701824]
+offset_right = 58.0
+offset_bottom = 56.0
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
+
+[node name="Gameover" type="CanvasLayer" parent="ui" unique_id=1142408748]
+visible = false
+
+[node name="Label" type="Label" parent="ui/Gameover" unique_id=1185367427]
+offset_right = 1153.0
+offset_bottom = 379.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_tefeu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menubutton" type="Node2D" parent="ui/Gameover" unique_id=936735587]
+position = Vector2(432, 482)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ui/Gameover/menubutton" unique_id=1331368681]
+offset_left = 1.0
+offset_right = 271.0
+offset_bottom = 91.0
+texture = ExtResource("3_sugp2")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="ui/Gameover/menubutton/NinePatchRect" unique_id=1692747838]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 17.0
+offset_right = 214.0
+offset_bottom = 74.0
+text = "Menu
+"
+label_settings = SubResource("LabelSettings_choun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttonmenu" type="Button" parent="ui/Gameover/menubutton" unique_id=130363285]
+offset_top = 2.0
+offset_right = 275.0
+offset_bottom = 93.0
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
+text = "Menu"
+
+[node name="Gamewin" type="CanvasLayer" parent="ui" unique_id=971888604]
+visible = false
+
+[node name="menubutton" type="Node2D" parent="ui/Gamewin" unique_id=660523975]
+position = Vector2(432, 482)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ui/Gamewin/menubutton" unique_id=1145393398]
+offset_left = 1.0
+offset_right = 271.0
+offset_bottom = 91.0
+texture = ExtResource("3_sugp2")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Label" type="Label" parent="ui/Gamewin/menubutton/NinePatchRect" unique_id=853103942]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 17.0
+offset_right = 214.0
+offset_bottom = 74.0
+text = "Menu
+"
+label_settings = SubResource("LabelSettings_choun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttonmenu" type="Button" parent="ui/Gamewin/menubutton" unique_id=156513328]
+offset_top = 2.0
+offset_right = 275.0
+offset_bottom = 93.0
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
+text = "Menu"
+
+[node name="Label" type="Label" parent="ui/Gamewin" unique_id=34798436]
+offset_right = 1153.0
+offset_bottom = 379.0
+text = "You Win!"
+label_settings = SubResource("LabelSettings_tefeu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelCoins" type="Label" parent="ui/Gamewin" unique_id=2047473434]
+offset_left = -11.0
+offset_top = 69.0
+offset_right = 1142.0
+offset_bottom = 448.0
+text = "Coins: 0"
+label_settings = SubResource("LabelSettings_o6xl0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ui/menu/mutebutton/buttonmute" to="ui" method="_on_buttonmute_pressed"]
+[connection signal="pressed" from="ui/menu/levelone/buttonlevel1" to="ui" method="_on_buttonlevel_1_pressed"]
+[connection signal="pressed" from="ui/menu/leveltwo/buttonlevel2" to="ui" method="_on_buttonlevel_2_pressed"]
+[connection signal="pressed" from="ui/menu/levelthree/buttonlevel3" to="ui" method="_on_buttonlevel_3_pressed"]
+[connection signal="pressed" from="ui/inGame/quitbutton/buttonmenu" to="ui" method="_on_buttonmenu_pressed"]
+[connection signal="pressed" from="ui/Gameover/menubutton/buttonmenu" to="ui" method="_on_buttonmenu_pressed"]
+[connection signal="pressed" from="ui/Gamewin/menubutton/buttonmenu" to="ui" method="_on_buttonmenu_pressed"]
