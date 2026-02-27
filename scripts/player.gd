@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 300.0
-@export var jump_velocity: float = -700.0
+@export var jump_velocity: float = -800.0
 @export var gravity: float = 1400.0
 
 @onready var player_sprite: AnimatedSprite2D = $body/AnimatedSprite2D
@@ -21,8 +21,7 @@ func _ready():
 func _physics_process(delta):
 	if Global.game_over != true:
 		if not is_on_floor():
-			velocity.y *= gravity * delta
-		move_and_slide()
+			velocity.y += gravity * delta
 		if Global.game_win == true:
 			player_sprite.play("idle")
 			player_sprite_powered_up.play("idle")
@@ -38,11 +37,13 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x,0, speed)
 		
 		update_animations()
+		move_and_slide()
 		
 func player_jump():
-	if $sounds/Sfxjump.finished:
-		$sounds/Sfxjump.play()
-	velocity.y = jump_velocity
+	if is_on_floor():
+		if not $sounds/Sfxjump.is_playing():
+			$sounds/Sfxjump.play()
+			velocity.y = jump_velocity
 	 
 func update_animations():
 	var landing_soon: bool = ray_cast_2d.is_colliding() and velocity.y > 0
@@ -60,10 +61,11 @@ func update_animations():
 	if velocity.x > 0:
 		player_sprite.flip_h = false
 		player_sprite_powered_up.flip_h = false
-	elif velocity.x > 0:
+	elif velocity.x < 0:
 		player_sprite.flip_h = true
 		player_sprite_powered_up.flip_h = true
 	
+@warning_ignore("unused_parameter")
 func _process(delta):
 	if Global.health <= 0:
 		end_game()
@@ -124,6 +126,31 @@ func _on_timer_hurting_timeout() -> void:
 	hurting = false
 	hurting_anim.play("idle")
 	
+	
 
-func _on_area_2d_hit_box_body_exited(body: Node2D) -> void:
+func _on_area_2d_hit_box_body_exited(body):
+	if body.is_in_group("enemy"):
+		in_enemy = false
+
+func _on_area_2d_hit_box_area_entered(area):
+	if area.is_in_group("win"):
+		Global.game_win = true
+	if area.is_in_group("coin"):
+		$sounds/SfxCoin.play()
+		area.get_parent().queue_free()
+		Global.coins += 1
+	if area.is_in_group("heat"):
+		$sounds/SfxGem.play()
+		area.get_parent().queue_free()
+		Global.health += 1
+	if area.is_in_group("spikes"):
+		end_game()
+	if area.is_in_group("bossFight"):
+		Global.is_in_boss_battle = true
+		area.queue_free()
+	if area.is_in_group("leaveFight"):
+		area.queue_free()
+		
+			
+		
 	

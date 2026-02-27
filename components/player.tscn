@@ -252,17 +252,14 @@ height = 122.0
 [node name="player" type="CharacterBody2D" unique_id=918180083 groups=["player"]]
 position = Vector2(37, 19)
 script = ExtResource("1_0lm1f")
-speed = null
-jump_velocity = null
-gravity = null
 
 [node name="effects" type="Node2D" parent="." unique_id=890011036]
 
 [node name="ColorRect" type="ColorRect" parent="effects" unique_id=1728605410]
-offset_left = -41.0
-offset_top = -67.0
-offset_right = 1225.0
-offset_bottom = 704.0
+offset_left = -668.0
+offset_top = -397.0
+offset_right = 598.0
+offset_bottom = 374.0
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="effects" unique_id=2080002562]
@@ -322,7 +319,7 @@ shape = SubResource("CapsuleShape2D_uapwn")
 debug_color = Color(0.41081372, 0.1494439, 0.5302662, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1306112800]
-position = Vector2(-18, -125)
+position = Vector2(-32, -7)
 position_smoothing_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1396794912]
@@ -349,6 +346,7 @@ stream = ExtResource("5_pir3r")
 [node name="SfxBump" type="AudioStreamPlayer2D" parent="sounds" unique_id=948871155]
 stream = ExtResource("6_mm1xv")
 
+[connection signal="area_entered" from="areas/Area2DHitBox" to="." method="_on_area_2d_hit_box_area_entered"]
 [connection signal="body_entered" from="areas/Area2DHitBox" to="." method="_on_area_2d_hit_box_body_entered"]
 [connection signal="body_exited" from="areas/Area2DHitBox" to="." method="_on_area_2d_hit_box_body_exited"]
 [connection signal="timeout" from="TimerHurting" to="." method="_on_timer_hurting_timeout"]

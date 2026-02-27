@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var level_one = preload("res://scenes/main.tscn")
-@onready var level_two = preload("res://scenes/main.tscn")
-@onready var level_three = preload("res://scenes/main.tscn")
+@onready var level_one = preload("res://scenes/level_one.tscn")
+@onready var level_two = preload("res://scenes/level_two.tscn")
+@onready var level_three = preload("res://scenes/level_three.tscn")
 
 func _ready():
 	$menu.visible = true
@@ -16,7 +16,7 @@ func _process(_delta):
 		$inGame.visible = false
 		$Gameover.visible = false
 		$Gamewin.visible = true
-	if Global.game_lose == true:
+	if Global.game_over == true:
 		$menu.visible = false
 		$inGame.visible = false
 		$Gameover.visible = true
