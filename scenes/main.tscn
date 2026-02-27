@@ -60,6 +60,7 @@ script = ExtResource("1_o6xl0")
 [node name="menu" type="CanvasLayer" parent="ui" unique_id=1233774245]
 
 [node name="scrollingBackground" parent="ui/menu" unique_id=1827182102 instance=ExtResource("1_o5qli")]
+position = Vector2(0, -100)
 
 [node name="ground" type="Node2D" parent="ui/menu" unique_id=1308887612]
 

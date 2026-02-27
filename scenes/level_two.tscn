@@ -127,11 +127,13 @@ size = Vector2(204, 47)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ti4"]
 size = Vector2(520, 1264.5)
 
-[node name="levelOne" type="Node2D" unique_id=1010535118]
+[node name="leveltwo" type="Node2D" unique_id=1010535118]
 
 [node name="map" type="Node2D" parent="." unique_id=422776045]
 
 [node name="scrollingBackground" parent="map" unique_id=1827182102 instance=ExtResource("1_8cim8")]
+modulate = Color(1, 0.8039216, 0.99215686, 1)
+position = Vector2(0, -100)
 
 [node name="tiles" type="Node2D" parent="map" unique_id=352831546]
 
