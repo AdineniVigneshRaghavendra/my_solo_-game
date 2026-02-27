@@ -1,0 +1,345 @@
+[gd_scene format=3 uid="uid://bb31tn2qovb2w"]
+
+[ext_resource type="Texture2D" uid="uid://rhs67563vmh1" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-characters-default.png" id="1_0g4kb"]
+[ext_resource type="AudioStream" uid="uid://c12su4ropxhuj" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_coin.ogg" id="2_kuobi"]
+[ext_resource type="AudioStream" uid="uid://cwdnldquwkjga" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_gem.ogg" id="3_0lm1f"]
+[ext_resource type="AudioStream" uid="uid://cadsos2747456" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_hurt.ogg" id="4_couud"]
+[ext_resource type="AudioStream" uid="uid://d2x8do514bnis" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_jump.ogg" id="5_pir3r"]
+[ext_resource type="AudioStream" uid="uid://dapf2um1qsqte" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_bump.ogg" id="6_mm1xv"]
+
+[sub_resource type="Animation" id="Animation_5rfim"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t18mc"]
+resource_name = "end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_843q2"]
+_data = {
+&"RESET": SubResource("Animation_5rfim"),
+&"end": SubResource("Animation_t18mc")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_843q2"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4wdr"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rfim"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhu28"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p75b"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8ti4"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhu28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_843q2")
+}],
+"loop": true,
+"name": &"gameover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4wdr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rfim")
+}],
+"loop": true,
+"name": &"inairdown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhu28")
+}],
+"loop": true,
+"name": &"inairup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p75b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8ti4")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_astit"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(640, 645, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5wbv"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(512, 645, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6ikc"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(128, 773, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_036lt"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(0, 773, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlxio"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(128, 773, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrbqg"]
+atlas = ExtResource("1_0g4kb")
+region = Rect2(256, 773, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dv7nr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_astit")
+}],
+"loop": true,
+"name": &"gameover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5wbv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6ikc")
+}],
+"loop": true,
+"name": &"inairdown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_036lt")
+}],
+"loop": true,
+"name": &"inairup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlxio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrbqg")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_lgrt7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4i3tx"]
+resource_name = "hurting"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 0.5294118), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w4tp6"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_unjau"]
+_data = {
+&"RESET": SubResource("Animation_lgrt7"),
+&"hurting": SubResource("Animation_4i3tx"),
+&"idle": SubResource("Animation_w4tp6")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0g4kb"]
+radius = 45.0
+height = 138.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51jd6"]
+size = Vector2(53, 13)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uapwn"]
+radius = 40.0
+height = 122.0
+
+[node name="player" type="CharacterBody2D" unique_id=918180083 groups=["player"]]
+position = Vector2(37, 19)
+
+[node name="effects" type="Node2D" parent="." unique_id=890011036]
+
+[node name="ColorRect" type="ColorRect" parent="effects" unique_id=1728605410]
+offset_left = -41.0
+offset_top = -67.0
+offset_right = 1225.0
+offset_bottom = 704.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="effects" unique_id=2080002562]
+libraries/ = SubResource("AnimationLibrary_843q2")
+
+[node name="body" type="Node2D" parent="." unique_id=416074704]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="body" unique_id=1675915568]
+clip_children = 2
+position = Vector2(-42.999996, -31.500008)
+scale = Vector2(1.4531254, 1.5390624)
+sprite_frames = SubResource("SpriteFrames_bhu28")
+animation = &"idle"
+
+[node name="ColorRect" type="ColorRect" parent="body/AnimatedSprite2D" unique_id=437093201]
+offset_left = -56.000015
+offset_top = -58.06186
+offset_right = 61.538452
+offset_bottom = 77.19588
+color = Color(1, 1, 1, 0)
+
+[node name="AnimatedSprite2DPowerup" type="AnimatedSprite2D" parent="body" unique_id=339678428]
+visible = false
+position = Vector2(-53.99997, -33)
+scale = Vector2(1.625, 1.515625)
+sprite_frames = SubResource("SpriteFrames_dv7nr")
+animation = &"gameover"
+frame_progress = 0.004797013
+
+[node name="AnimationPlayerhurting" type="AnimationPlayer" parent="body" unique_id=170062535]
+libraries/ = SubResource("AnimationLibrary_unjau")
+
+[node name="areas" type="Node2D" parent="." unique_id=1105307404]
+
+[node name="Area2DHitBox" type="Area2D" parent="areas" unique_id=750972863]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/Area2DHitBox" unique_id=1599175158]
+position = Vector2(-34, -4)
+shape = SubResource("CapsuleShape2D_0g4kb")
+debug_color = Color(0.5047518, 0.170044, 0.07455499, 0.41960785)
+
+[node name="Area2DFeet" type="Area2D" parent="areas" unique_id=1550304516 groups=["feet"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/Area2DFeet" unique_id=218715285]
+position = Vector2(-35.5, 61.5)
+shape = SubResource("RectangleShape2D_51jd6")
+
+[node name="Area2DHead" type="Area2D" parent="areas" unique_id=1671430633 groups=["head"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="areas/Area2DHead" unique_id=1353389967]
+position = Vector2(-35.5, -72.5)
+shape = SubResource("RectangleShape2D_51jd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1856622895]
+position = Vector2(-34, -4)
+shape = SubResource("CapsuleShape2D_uapwn")
+debug_color = Color(0.41081372, 0.1494439, 0.5302662, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1306112800]
+position = Vector2(-18, -125)
+position_smoothing_enabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1396794912]
+position = Vector2(-36, 40)
+
+[node name="TimerHurting" type="Timer" parent="." unique_id=541369527]
+wait_time = 1.5
+one_shot = true
+
+[node name="sounds" type="Node2D" parent="." unique_id=2012852944]
+
+[node name="SfxCoin" type="AudioStreamPlayer2D" parent="sounds" unique_id=1514041152]
+stream = ExtResource("2_kuobi")
+
+[node name="SfxGem" type="AudioStreamPlayer2D" parent="sounds" unique_id=1604693273]
+stream = ExtResource("3_0lm1f")
+
+[node name="SfxHurt" type="AudioStreamPlayer2D" parent="sounds" unique_id=1920510206]
+stream = ExtResource("4_couud")
+
+[node name="Sfxjump" type="AudioStreamPlayer2D" parent="sounds" unique_id=385706654]
+stream = ExtResource("5_pir3r")
+
+[node name="SfxBump" type="AudioStreamPlayer2D" parent="sounds" unique_id=948871155]
+stream = ExtResource("6_mm1xv")

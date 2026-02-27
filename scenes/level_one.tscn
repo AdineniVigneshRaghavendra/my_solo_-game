@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cimb7f3nbeit0" path="res://components/scrolling_background.tscn" id="1_cd1xg"]
 [ext_resource type="Texture2D" uid="uid://dm4ac08sxg0ib" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-tiles-default.png" id="2_t18mc"]
-[ext_resource type="Texture2D" uid="uid://rhs67563vmh1" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-characters-default.png" id="3_843q2"]
+[ext_resource type="PackedScene" uid="uid://bb31tn2qovb2w" path="res://components/player.tscn" id="3_843q2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_843q2"]
 texture = ExtResource("2_t18mc")
@@ -98,112 +98,6 @@ size = Vector2(950, 22.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ti4"]
 size = Vector2(520, 1264.5)
 
-[sub_resource type="Animation" id="Animation_5rfim"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_t18mc"]
-resource_name = "end"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_843q2"]
-_data = {
-&"RESET": SubResource("Animation_5rfim"),
-&"end": SubResource("Animation_t18mc")
-}
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_843q2"]
-atlas = ExtResource("3_843q2")
-region = Rect2(768, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r4wdr"]
-atlas = ExtResource("3_843q2")
-region = Rect2(640, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5rfim"]
-atlas = ExtResource("3_843q2")
-region = Rect2(256, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bhu28"]
-atlas = ExtResource("3_843q2")
-region = Rect2(128, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4p75b"]
-atlas = ExtResource("3_843q2")
-region = Rect2(256, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y8ti4"]
-atlas = ExtResource("3_843q2")
-region = Rect2(384, 256, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bhu28"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_843q2")
-}],
-"loop": true,
-"name": &"gameover",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r4wdr")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5rfim")
-}],
-"loop": true,
-"name": &"inairdown",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bhu28")
-}],
-"loop": true,
-"name": &"inairup",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4p75b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y8ti4")
-}],
-"loop": true,
-"name": &"walking",
-"speed": 5.0
-}]
-
 [node name="levelOne" type="Node2D" unique_id=1010535118]
 
 [node name="map" type="Node2D" parent="." unique_id=422776045]
@@ -266,25 +160,5 @@ one_way_collision = true
 position = Vector2(5668, -186)
 shape = SubResource("RectangleShape2D_y8ti4")
 
-[node name="player" type="CharacterBody2D" parent="." unique_id=1983280034 groups=["player"]]
+[node name="player" parent="." unique_id=918180083 instance=ExtResource("3_843q2")]
 position = Vector2(468, 312)
-
-[node name="effects" type="Node2D" parent="player" unique_id=1803257468]
-
-[node name="ColorRect" type="ColorRect" parent="player/effects" unique_id=950116926]
-offset_left = -41.0
-offset_top = -67.0
-offset_right = 1225.0
-offset_bottom = 704.0
-color = Color(0, 0, 0, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player/effects" unique_id=1311634185]
-libraries/ = SubResource("AnimationLibrary_843q2")
-
-[node name="body" type="Node2D" parent="player" unique_id=1890571324]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player/body" unique_id=1345994580]
-position = Vector2(-53.99997, -33)
-scale = Vector2(1.625, 1.515625)
-sprite_frames = SubResource("SpriteFrames_bhu28")
-animation = &"gameover"

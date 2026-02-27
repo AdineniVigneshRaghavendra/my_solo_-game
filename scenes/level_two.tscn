@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cimb7f3nbeit0" path="res://components/scrolling_background.tscn" id="1_8cim8"]
 [ext_resource type="Texture2D" uid="uid://dm4ac08sxg0ib" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-tiles-default.png" id="2_8lyp7"]
+[ext_resource type="PackedScene" uid="uid://bb31tn2qovb2w" path="res://components/player.tscn" id="3_8lyp7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_843q2"]
 texture = ExtResource("2_8lyp7")
@@ -234,3 +235,6 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/collisions/Area2Dwin" unique_id=310315018 groups=["win"]]
 position = Vector2(5668, -186)
 shape = SubResource("RectangleShape2D_y8ti4")
+
+[node name="player" parent="." unique_id=918180083 instance=ExtResource("3_8lyp7")]
+position = Vector2(325, 311)
