@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://djrso4dwpei2h"]
+
+[ext_resource type="Texture2D" uid="uid://2eh7huns6e3q" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sprites/Tiles/Default/hud_heart.png" id="1_7pfoe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfl2e"]
+radius = 30.0
+
+[node name="heart" type="Node2D" unique_id=331943555]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1840480536]
+position = Vector2(-3, 412.00003)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_7pfoe")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=921385692 groups=["heart"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=13956544]
+position = Vector2(-2, 406)
+shape = SubResource("CircleShape2D_nfl2e")

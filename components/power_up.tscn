@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dva4iv7adrw3b"]
+
+[ext_resource type="Texture2D" uid="uid://daggtuipybckx" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sprites/Tiles/Default/gem_yellow.png" id="1_qh3pg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kegk4"]
+radius = 30.413813
+
+[node name="powerUp" type="RigidBody2D" unique_id=2104757905 groups=["powerup"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2084261467]
+position = Vector2(-3, 412.00003)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_qh3pg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1968238714]
+position = Vector2(-3, 408)
+shape = SubResource("CircleShape2D_kegk4")

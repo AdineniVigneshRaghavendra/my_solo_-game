@@ -116,7 +116,7 @@ func _on_area_2d_hit_box_body_entered(body):
 		in_enemy = true
 		if hurting == false and game_ended == false:
 			player_hit()
-	if body.is_in_group("powerUp"):
+	if body.is_in_group("powerup"):
 		$sounds/SfxGem.play()
 		body.queue_free()
 		Global.health += 3
@@ -139,7 +139,7 @@ func _on_area_2d_hit_box_area_entered(area):
 		$sounds/SfxCoin.play()
 		area.get_parent().queue_free()
 		Global.coins += 1
-	if area.is_in_group("heat"):
+	if area.is_in_group("heart"):
 		$sounds/SfxGem.play()
 		area.get_parent().queue_free()
 		Global.health += 1

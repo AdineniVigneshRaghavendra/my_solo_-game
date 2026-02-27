@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://codoq6l1wb4yh"]
+
+[ext_resource type="Texture2D" uid="uid://b4elpaloqls48" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sprites/Tiles/Default/hud_coin.png" id="1_itggn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfl2e"]
+radius = 30.0
+
+[node name="coin" type="Node2D" unique_id=525542148]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=847958615]
+position = Vector2(-3, 412.00003)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_itggn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1412540084 groups=["coin"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=383602874]
+position = Vector2(-2, 406)
+shape = SubResource("CircleShape2D_nfl2e")

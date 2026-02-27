@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://2n35i0yghpdl"]
+
+[ext_resource type="Texture2D" uid="uid://cjiccxr1tybjo" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sprites/Tiles/Default/block_exclamation_active.png" id="1_b1vry"]
+[ext_resource type="Script" uid="uid://d34osan8tecg2" path="res://scripts/block.gd" id="1_qhqk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_astit"]
+size = Vector2(91, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5wbv"]
+size = Vector2(76, 11)
+
+[node name="powerBlock" type="CharacterBody2D" unique_id=957169923]
+script = ExtResource("1_qhqk5")
+is_power_block = null
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=381985041]
+position = Vector2(220, -9)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_b1vry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1137176797]
+position = Vector2(219.5, -9)
+shape = SubResource("RectangleShape2D_astit")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1689338984]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=829339850]
+position = Vector2(222, 39.5)
+shape = SubResource("RectangleShape2D_o5wbv")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

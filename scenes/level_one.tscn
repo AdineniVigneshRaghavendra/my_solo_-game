@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cimb7f3nbeit0" path="res://components/scrolling_background.tscn" id="1_cd1xg"]
 [ext_resource type="Texture2D" uid="uid://dm4ac08sxg0ib" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-tiles-default.png" id="2_t18mc"]
 [ext_resource type="PackedScene" uid="uid://bb31tn2qovb2w" path="res://components/player.tscn" id="3_843q2"]
+[ext_resource type="PackedScene" uid="uid://c5ew2j17ucci5" path="res://components/basic_block.tscn" id="4_r4wdr"]
+[ext_resource type="PackedScene" uid="uid://2n35i0yghpdl" path="res://components/power_block.tscn" id="5_bhu28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_843q2"]
 texture = ExtResource("2_t18mc")
@@ -164,3 +166,10 @@ shape = SubResource("RectangleShape2D_y8ti4")
 
 [node name="player" parent="." unique_id=918180083 instance=ExtResource("3_843q2")]
 position = Vector2(-172, 414)
+
+[node name="basicBlock" parent="." unique_id=119098011 instance=ExtResource("4_r4wdr")]
+position = Vector2(74, 334)
+
+[node name="powerBlock" parent="." unique_id=957169923 instance=ExtResource("5_bhu28")]
+position = Vector2(-115, 334)
+is_power_block = null
