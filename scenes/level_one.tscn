@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cimb7f3nbeit0" path="res://components/scrolling_background.tscn" id="1_cd1xg"]
 [ext_resource type="Texture2D" uid="uid://dm4ac08sxg0ib" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-tiles-default.png" id="2_t18mc"]
 [ext_resource type="PackedScene" uid="uid://bb31tn2qovb2w" path="res://components/player.tscn" id="3_843q2"]
+[ext_resource type="Texture2D" uid="uid://cj6c44p3yyi2f" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-enemies-default.png" id="4_5rfim"]
+[ext_resource type="Script" uid="uid://d1rl0tpr1wgd" path="res://scripts/slime.gd" id="4_r4wdr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_843q2"]
 texture = ExtResource("2_t18mc")
@@ -99,6 +101,110 @@ size = Vector2(950, 22.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ti4"]
 size = Vector2(520, 1264.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rfim"]
+atlas = ExtResource("4_5rfim")
+region = Rect2(325, 329, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4wdr"]
+atlas = ExtResource("4_5rfim")
+region = Rect2(261, 329, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhu28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rfim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4wdr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_astit"]
+size = Vector2(118, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5wbv"]
+size = Vector2(96, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6ikc"]
+atlas = ExtResource("4_5rfim")
+region = Rect2(65, 330, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_036lt"]
+atlas = ExtResource("4_5rfim")
+region = Rect2(1, 331, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlxio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6ikc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_036lt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_5rfim"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r4wdr"]
+resource_name = "hurting"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 0.5019608), Color(1, 1, 1, 0.5019608)]
+}
+
+[sub_resource type="Animation" id="Animation_bhu28"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4p75b"]
+_data = {
+&"RESET": SubResource("Animation_5rfim"),
+&"hurting": SubResource("Animation_r4wdr"),
+&"idle": SubResource("Animation_bhu28")
+}
+
 [node name="levelOne" type="Node2D" unique_id=1010535118]
 
 [node name="map" type="Node2D" parent="." unique_id=422776045]
@@ -166,4 +272,64 @@ position = Vector2(5310, -150)
 shape = SubResource("RectangleShape2D_y8ti4")
 
 [node name="player" parent="." unique_id=918180083 instance=ExtResource("3_843q2")]
-position = Vector2(-172, 414)
+position = Vector2(289, 419)
+
+[node name="basicSlime" type="CharacterBody2D" parent="." unique_id=279083570 groups=["enemy"]]
+position = Vector2(596, 428)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_r4wdr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="basicSlime" unique_id=801588449]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bhu28")
+autoplay = "default"
+frame_progress = 0.5821077
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="basicSlime" unique_id=729641070]
+position = Vector2(-1, 25.5)
+shape = SubResource("RectangleShape2D_astit")
+
+[node name="Area2D" type="Area2D" parent="basicSlime" unique_id=1304020324]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="basicSlime/Area2D" unique_id=636278857]
+position = Vector2(-4, -15.5)
+shape = SubResource("RectangleShape2D_o5wbv")
+
+[node name="endPoint" type="Node2D" parent="basicSlime" unique_id=1244331843]
+
+[node name="strongSlime" type="CharacterBody2D" parent="." unique_id=824232009 groups=["enemy"]]
+position = Vector2(89, 427)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_r4wdr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="strongSlime" unique_id=1843088328]
+clip_children = 2
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nlxio")
+autoplay = "default"
+frame = 1
+frame_progress = 0.5811356
+
+[node name="ColorRect" type="ColorRect" parent="strongSlime/AnimatedSprite2D" unique_id=226314932]
+offset_left = -44.5
+offset_top = -34.5
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="strongSlime/AnimatedSprite2D" unique_id=1451752361]
+libraries/ = SubResource("AnimationLibrary_4p75b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="strongSlime" unique_id=124505426]
+position = Vector2(-1, 25.5)
+shape = SubResource("RectangleShape2D_astit")
+
+[node name="Area2D" type="Area2D" parent="strongSlime" unique_id=1098475642]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="strongSlime/Area2D" unique_id=58805735]
+position = Vector2(-4, -15.5)
+shape = SubResource("RectangleShape2D_o5wbv")
+
+[connection signal="area_entered" from="basicSlime/Area2D" to="basicSlime" method="_on_area_2d_area_entered"]
