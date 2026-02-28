@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dexifo332nmr8"]
+
+[ext_resource type="Script" uid="uid://bb2txubtigjt4" path="res://scripts/bee_enemy.gd" id="1_2u7bp"]
+[ext_resource type="Texture2D" uid="uid://cj6c44p3yyi2f" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-enemies-default.png" id="2_ia67w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4wdr"]
+atlas = ExtResource("2_ia67w")
+region = Rect2(196, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhu28"]
+atlas = ExtResource("2_ia67w")
+region = Rect2(260, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4p75b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4wdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhu28")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_astit"]
+size = Vector2(63, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5wbv"]
+size = Vector2(52.5, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6ikc"]
+radius = 199.12622
+
+[node name="beeEnemy" type="CharacterBody2D" unique_id=956766787 groups=["enemy"]]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_2u7bp")
+speed = 250.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1908893385]
+texture_filter = 1
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_4p75b")
+frame_progress = 0.76525676
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=729411917]
+position = Vector2(-4, 9)
+shape = SubResource("RectangleShape2D_astit")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1270830843]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1831724450]
+position = Vector2(-2.5, -15.5)
+shape = SubResource("RectangleShape2D_o5wbv")
+
+[node name="Area2DDetection" type="Area2D" parent="." unique_id=1448596326]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DDetection" unique_id=90676585]
+position = Vector2(-3.5, 1)
+shape = SubResource("CircleShape2D_s6ikc")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2DDetection" to="." method="_on_area_2d_detection_body_entered"]
+[connection signal="body_exited" from="Area2DDetection" to="." method="_on_area_2d_detection_body_exited"]

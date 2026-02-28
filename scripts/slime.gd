@@ -35,6 +35,7 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
+@warning_ignore("unused_parameter")
 func _process(delta):
 	if Global.game_win == true:
 		die()

@@ -8,7 +8,7 @@ var direction: int = 1
 
 func _ready():
 	start_position =  self.global_position
-	end_position = $endPoint.global_position
+	end_position = $endPoint2.global_position
 	$AnimatedSprite2D.play("default")
 	
 @warning_ignore("unused_parameter")

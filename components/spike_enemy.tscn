@@ -42,6 +42,3 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=666075032]
 position = Vector2(279, 199)
 shape = SubResource("CircleShape2D_y8ti4")
-
-[node name="endPoint" type="Node2D" parent="." unique_id=1214850722]
-position = Vector2(282, 250)

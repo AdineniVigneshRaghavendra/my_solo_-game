@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://cimb7f3nbeit0" path="res://components/scrolling_background.tscn" id="1_cd1xg"]
 [ext_resource type="Texture2D" uid="uid://dm4ac08sxg0ib" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-tiles-default.png" id="2_t18mc"]
+[ext_resource type="PackedScene" uid="uid://b6vq8cgcho7qw" path="res://components/flag.tscn" id="3_5rfim"]
 [ext_resource type="PackedScene" uid="uid://bb31tn2qovb2w" path="res://components/player.tscn" id="3_843q2"]
-[ext_resource type="Texture2D" uid="uid://cj6c44p3yyi2f" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-enemies-default.png" id="4_5rfim"]
-[ext_resource type="Script" uid="uid://bb2txubtigjt4" path="res://scripts/bee_enemy.gd" id="4_r4wdr"]
+[ext_resource type="PackedScene" uid="uid://codoq6l1wb4yh" path="res://components/coin.tscn" id="4_4p75b"]
+[ext_resource type="PackedScene" uid="uid://c5ew2j17ucci5" path="res://components/basic_block.tscn" id="5_y8ti4"]
+[ext_resource type="PackedScene" uid="uid://booc1fj01b002" path="res://components/spike_enemy.tscn" id="6_astit"]
+[ext_resource type="PackedScene" uid="uid://bfxpsigp7g6ec" path="res://components/basic_slime.tscn" id="7_astit"]
+[ext_resource type="PackedScene" uid="uid://2l2llgdcbw1e" path="res://components/strong_slime.tscn" id="8_o5wbv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_843q2"]
 texture = ExtResource("2_t18mc")
@@ -101,37 +105,6 @@ size = Vector2(950, 22.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ti4"]
 size = Vector2(520, 1264.5)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r4wdr"]
-atlas = ExtResource("4_5rfim")
-region = Rect2(196, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bhu28"]
-atlas = ExtResource("4_5rfim")
-region = Rect2(260, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4p75b"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r4wdr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bhu28")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_astit"]
-size = Vector2(63, 27.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5wbv"]
-size = Vector2(52.5, 20)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s6ikc"]
-radius = 199.12622
-
 [node name="levelOne" type="Node2D" unique_id=1010535118]
 
 [node name="map" type="Node2D" parent="." unique_id=422776045]
@@ -198,41 +171,109 @@ one_way_collision = true
 position = Vector2(5310, -150)
 shape = SubResource("RectangleShape2D_y8ti4")
 
+[node name="flag" parent="." unique_id=79267359 instance=ExtResource("3_5rfim")]
+
+[node name="coins" type="Node2D" parent="." unique_id=584209931]
+
+[node name="coin" parent="coins" unique_id=525542148 instance=ExtResource("4_4p75b")]
+position = Vector2(949, -602)
+scale = Vector2(2, 2)
+
+[node name="coin2" parent="coins" unique_id=1168312792 instance=ExtResource("4_4p75b")]
+position = Vector2(1519, -602)
+scale = Vector2(2, 2)
+
+[node name="coin3" parent="coins" unique_id=796417086 instance=ExtResource("4_4p75b")]
+position = Vector2(1256, -605)
+scale = Vector2(2, 2)
+
+[node name="coin4" parent="coins" unique_id=2127372583 instance=ExtResource("4_4p75b")]
+position = Vector2(1773, -601)
+scale = Vector2(2, 2)
+
+[node name="coin5" parent="coins" unique_id=74656005 instance=ExtResource("4_4p75b")]
+position = Vector2(2815, -705)
+scale = Vector2(2, 2)
+
+[node name="coin6" parent="coins" unique_id=871760925 instance=ExtResource("4_4p75b")]
+position = Vector2(3003, -705)
+scale = Vector2(2, 2)
+
+[node name="coin7" parent="coins" unique_id=441953002 instance=ExtResource("4_4p75b")]
+position = Vector2(3195, -705)
+scale = Vector2(2, 2)
+
+[node name="coin8" parent="coins" unique_id=1153672310 instance=ExtResource("4_4p75b")]
+position = Vector2(3386, -705)
+scale = Vector2(2, 2)
+
+[node name="coin9" parent="coins" unique_id=1107364883 instance=ExtResource("4_4p75b")]
+position = Vector2(3581, -705)
+scale = Vector2(2, 2)
+
+[node name="coin10" parent="coins" unique_id=1557417807 instance=ExtResource("4_4p75b")]
+position = Vector2(4437, -429)
+scale = Vector2(2, 2)
+
+[node name="coin11" parent="coins" unique_id=1225834496 instance=ExtResource("4_4p75b")]
+position = Vector2(4642, -431)
+scale = Vector2(2, 2)
+
+[node name="coin12" parent="coins" unique_id=768468495 instance=ExtResource("4_4p75b")]
+position = Vector2(4819, -434)
+scale = Vector2(2, 2)
+
+[node name="blocks" type="Node2D" parent="." unique_id=541206456]
+
+[node name="basicBlock" parent="blocks" unique_id=119098011 instance=ExtResource("5_y8ti4")]
+position = Vector2(1731, 161)
+
+[node name="basicBlock2" parent="blocks" unique_id=1637557704 instance=ExtResource("5_y8ti4")]
+position = Vector2(2194, 158)
+
+[node name="basicBlock3" parent="blocks" unique_id=1091830406 instance=ExtResource("5_y8ti4")]
+position = Vector2(3625, 199)
+
+[node name="basicBlock4" parent="blocks" unique_id=616229406 instance=ExtResource("5_y8ti4")]
+position = Vector2(4032, 199)
+
+[node name="enemies" type="Node2D" parent="." unique_id=1915884505]
+
+[node name="spikeEnemy" parent="enemies" unique_id=221175394 instance=ExtResource("6_astit")]
+position = Vector2(1875, -49)
+
+[node name="endPoint2" type="Node2D" parent="enemies/spikeEnemy" unique_id=253960976]
+position = Vector2(282, 253)
+
+[node name="spikeEnemy2" parent="enemies" unique_id=1710815558 instance=ExtResource("6_astit")]
+position = Vector2(3771, 5)
+
+[node name="endPoint2" type="Node2D" parent="enemies/spikeEnemy2" unique_id=50451877]
+position = Vector2(282, 250)
+
+[node name="basicSlime" parent="enemies" unique_id=1840680423 instance=ExtResource("7_astit")]
+position = Vector2(1677, 430)
+
+[node name="endPoint" type="Node2D" parent="enemies/basicSlime" unique_id=1566414953]
+position = Vector2(-390, 0)
+
+[node name="basicSlime2" parent="enemies" unique_id=673432335 instance=ExtResource("7_astit")]
+position = Vector2(987, 426)
+
+[node name="endPoint" type="Node2D" parent="enemies/basicSlime2" unique_id=1412848418]
+position = Vector2(-390, 0)
+
+[node name="strongSlime" parent="enemies" unique_id=1552198496 instance=ExtResource("8_o5wbv")]
+position = Vector2(2905, 429)
+
+[node name="endPoint" type="Node2D" parent="enemies/strongSlime" unique_id=225920514]
+position = Vector2(-352, -3)
+
+[node name="strongSlime2" parent="enemies" unique_id=1291618461 instance=ExtResource("8_o5wbv")]
+position = Vector2(3431, 429)
+
+[node name="endPoint" type="Node2D" parent="enemies/strongSlime2" unique_id=2068472068]
+position = Vector2(-352, -3)
+
 [node name="player" parent="." unique_id=918180083 instance=ExtResource("3_843q2")]
 position = Vector2(-66, 421)
-
-[node name="beeEnemy" type="CharacterBody2D" parent="." unique_id=1735281358 groups=["enemy"]]
-position = Vector2(619, 72)
-scale = Vector2(2, 2)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("4_r4wdr")
-speed = null
-health = null
-gravity = null
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="beeEnemy" unique_id=1353685626]
-texture_filter = 1
-position = Vector2(0, -2)
-sprite_frames = SubResource("SpriteFrames_4p75b")
-frame_progress = 0.3201181
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="beeEnemy" unique_id=1129791608]
-position = Vector2(-4, 9)
-shape = SubResource("RectangleShape2D_astit")
-
-[node name="Area2D" type="Area2D" parent="beeEnemy" unique_id=798622571]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="beeEnemy/Area2D" unique_id=2097616493]
-position = Vector2(-2.5, -15.5)
-shape = SubResource("RectangleShape2D_o5wbv")
-
-[node name="Area2DDetection" type="Area2D" parent="beeEnemy" unique_id=267134438]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="beeEnemy/Area2DDetection" unique_id=1906723047]
-position = Vector2(-3.5, 1)
-shape = SubResource("CircleShape2D_s6ikc")
-
-[connection signal="area_entered" from="beeEnemy/Area2D" to="beeEnemy" method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="beeEnemy/Area2DDetection" to="beeEnemy" method="_on_area_2d_detection_body_entered"]
-[connection signal="body_exited" from="beeEnemy/Area2DDetection" to="beeEnemy" method="_on_area_2d_detection_body_exited"]

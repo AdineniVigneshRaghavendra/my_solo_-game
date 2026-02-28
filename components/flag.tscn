@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b6vq8cgcho7qw"]
+
+[ext_resource type="Texture2D" uid="uid://dm4ac08sxg0ib" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-tiles-default.png" id="1_jkxyu"]
+[ext_resource type="Texture2D" uid="uid://0alytgqrelfg" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Vector/Tiles/flag_off.svg" id="2_h260q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4wdr"]
+atlas = ExtResource("1_jkxyu")
+region = Rect2(1104, 134, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhu28"]
+atlas = ExtResource("1_jkxyu")
+region = Rect2(0, 198, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4p75b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4wdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhu28")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="flag" type="Node2D" unique_id=79267359]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=544056819]
+texture_filter = 1
+position = Vector2(4923, 399)
+sprite_frames = SubResource("SpriteFrames_4p75b")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D" unique_id=1618255646]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(1, 51)
+texture = ExtResource("2_h260q")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1131820027]
+texture_filter = 1
+position = Vector2(5177, 400)
+sprite_frames = SubResource("SpriteFrames_4p75b")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D2" unique_id=179105011]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(1, 51)
+texture = ExtResource("2_h260q")

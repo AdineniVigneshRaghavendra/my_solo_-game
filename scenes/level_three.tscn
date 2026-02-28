@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cimb7f3nbeit0" path="res://components/scrolling_background.tscn" id="1_4i5uq"]
 [ext_resource type="Texture2D" uid="uid://dm4ac08sxg0ib" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-tiles-default.png" id="2_jyl00"]
 [ext_resource type="PackedScene" uid="uid://bb31tn2qovb2w" path="res://components/player.tscn" id="3_jyl00"]
+[ext_resource type="PackedScene" uid="uid://b6vq8cgcho7qw" path="res://components/flag.tscn" id="3_ol28e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4i5uq"]
 texture = ExtResource("2_jyl00")
@@ -39,7 +40,6 @@ texture_region_size = Vector2i(65, 65)
 14:15/0 = 0
 14:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.5, -32.5, 32.5, -32.5, 32.5, 32.5, -32.5, 32.5)
 12:15/0 = 0
-12:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.5, -32.5, 32.5, -32.5, 32.5, 32.5, -32.5, 32.5)
 8:9/0 = 0
 8:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.5, -32.5, 32.5, -32.5, 32.5, 32.5, -32.5, 32.5)
 9:9/0 = 0
@@ -160,6 +160,9 @@ shape = SubResource("RectangleShape2D_r4wdr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/collisions/Area2Dwin" unique_id=310315018 groups=["win"]]
 position = Vector2(4908, -252)
 shape = SubResource("RectangleShape2D_y8ti4")
+
+[node name="flag" parent="." unique_id=79267359 instance=ExtResource("3_ol28e")]
+position = Vector2(-385, -109)
 
 [node name="player" parent="." unique_id=918180083 instance=ExtResource("3_jyl00")]
 position = Vector2(99, 311)
