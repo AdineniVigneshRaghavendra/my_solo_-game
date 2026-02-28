@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b7daxdutagqtn" path="res://scripts/player.gd" id="1_0lm1f"]
 [ext_resource type="AudioStream" uid="uid://c12su4ropxhuj" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_coin.ogg" id="2_kuobi"]
 [ext_resource type="AudioStream" uid="uid://cwdnldquwkjga" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_gem.ogg" id="3_0lm1f"]
+[ext_resource type="Script" uid="uid://c7jk1awdyyt7j" path="res://scripts/camera_2d.gd" id="3_couud"]
 [ext_resource type="AudioStream" uid="uid://cadsos2747456" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_hurt.ogg" id="4_couud"]
 [ext_resource type="AudioStream" uid="uid://d2x8do514bnis" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_jump.ogg" id="5_pir3r"]
 [ext_resource type="AudioStream" uid="uid://dapf2um1qsqte" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_bump.ogg" id="6_mm1xv"]
@@ -243,7 +244,7 @@ radius = 45.0
 height = 138.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51jd6"]
-size = Vector2(53, 13)
+size = Vector2(62, 8)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uapwn"]
 radius = 40.0
@@ -294,7 +295,7 @@ libraries/ = SubResource("AnimationLibrary_unjau")
 
 [node name="areas" type="Node2D" parent="." unique_id=1105307404]
 
-[node name="Area2DHitBox" type="Area2D" parent="areas" unique_id=750972863]
+[node name="Area2DHitBox" type="Area2D" parent="areas" unique_id=750972863 groups=["feet", "head", "player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas/Area2DHitBox" unique_id=1599175158]
 position = Vector2(-34, -4)
@@ -310,7 +311,7 @@ shape = SubResource("RectangleShape2D_51jd6")
 [node name="Area2DHead" type="Area2D" parent="areas" unique_id=1671430633 groups=["head"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="areas/Area2DHead" unique_id=1353389967]
-position = Vector2(-35.5, -72.5)
+position = Vector2(-36, -75)
 shape = SubResource("RectangleShape2D_51jd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1856622895]
@@ -321,6 +322,9 @@ debug_color = Color(0.41081372, 0.1494439, 0.5302662, 0.41960785)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1306112800]
 position = Vector2(-32, -7)
 position_smoothing_enabled = true
+script = ExtResource("3_couud")
+shake_amplitude = null
+shake_duratin = null
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1396794912]
 position = Vector2(-36, 40)

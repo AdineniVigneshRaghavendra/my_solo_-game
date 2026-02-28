@@ -75,7 +75,7 @@ func _process(delta):
 	if powered_up == true:
 		Global.active_power_up = true
 		player_sprite = player_sprite_powered_up
-		speed = 400.0
+		speed = 1000.0
 		$body/AnimatedSprite2D.visible = false
 		player_sprite.visible = true
 	else:

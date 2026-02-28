@@ -11,7 +11,6 @@ size = Vector2(76, 11)
 
 [node name="basicBlock" type="CharacterBody2D" unique_id=119098011]
 script = ExtResource("1_0xvhq")
-is_power_block = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=904356940]
 position = Vector2(220, -9)
