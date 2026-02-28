@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://2l2llgdcbw1e"]
+
+[ext_resource type="Script" uid="uid://d1rl0tpr1wgd" path="res://scripts/slime.gd" id="1_a022x"]
+[ext_resource type="Texture2D" uid="uid://cj6c44p3yyi2f" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-enemies-default.png" id="2_4yphs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6ikc"]
+atlas = ExtResource("2_4yphs")
+region = Rect2(65, 330, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_036lt"]
+atlas = ExtResource("2_4yphs")
+region = Rect2(1, 331, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlxio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6ikc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_036lt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_5rfim"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r4wdr"]
+resource_name = "hurting"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 0.5019608), Color(1, 1, 1, 0.5019608)]
+}
+
+[sub_resource type="Animation" id="Animation_bhu28"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4p75b"]
+_data = {
+&"RESET": SubResource("Animation_5rfim"),
+&"hurting": SubResource("Animation_r4wdr"),
+&"idle": SubResource("Animation_bhu28")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_astit"]
+size = Vector2(118, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5wbv"]
+size = Vector2(96, 25)
+
+[node name="strongSlime" type="CharacterBody2D" unique_id=1552198496 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_a022x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=67192565]
+clip_children = 2
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nlxio")
+autoplay = "default"
+frame = 1
+frame_progress = 0.5811356
+
+[node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D" unique_id=1524527204]
+offset_left = -44.5
+offset_top = -34.5
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1073538336]
+libraries/ = SubResource("AnimationLibrary_4p75b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1998568518]
+position = Vector2(-1, 25.5)
+shape = SubResource("RectangleShape2D_astit")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1510411553]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=565981556]
+position = Vector2(-4, -15.5)
+shape = SubResource("RectangleShape2D_o5wbv")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

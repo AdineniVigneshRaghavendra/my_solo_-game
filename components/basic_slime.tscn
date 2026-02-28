@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bfxpsigp7g6ec"]
+
+[ext_resource type="Script" uid="uid://d1rl0tpr1wgd" path="res://scripts/slime.gd" id="1_dhus2"]
+[ext_resource type="Texture2D" uid="uid://cj6c44p3yyi2f" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-enemies-default.png" id="2_gpp3u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rfim"]
+atlas = ExtResource("2_gpp3u")
+region = Rect2(325, 329, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4wdr"]
+atlas = ExtResource("2_gpp3u")
+region = Rect2(261, 329, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhu28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rfim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4wdr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_astit"]
+size = Vector2(118, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5wbv"]
+size = Vector2(96, 25)
+
+[node name="basicSlime" type="CharacterBody2D" unique_id=1840680423 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_dhus2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=952152080]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bhu28")
+autoplay = "default"
+frame_progress = 0.5821077
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=308212291]
+position = Vector2(-1, 25.5)
+shape = SubResource("RectangleShape2D_astit")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=657612993]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=407761356]
+position = Vector2(-4, -15.5)
+shape = SubResource("RectangleShape2D_o5wbv")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
