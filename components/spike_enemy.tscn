@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://booc1fj01b002"]
+
+[ext_resource type="Script" uid="uid://cytjfnts1alc2" path="res://scripts/spike_enemy.gd" id="1_3ms4b"]
+[ext_resource type="Texture2D" uid="uid://cj6c44p3yyi2f" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-enemies-default.png" id="2_4ixn8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhu28"]
+atlas = ExtResource("2_4ixn8")
+region = Rect2(455, 196, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4wdr"]
+atlas = ExtResource("2_4ixn8")
+region = Rect2(0, 261, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4p75b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhu28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4wdr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8ti4"]
+radius = 46.09772
+
+[node name="spikeEnemy" type="CharacterBody2D" unique_id=221175394 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_3ms4b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=695172060]
+position = Vector2(282, 201)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_4p75b")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=666075032]
+position = Vector2(279, 199)
+shape = SubResource("CircleShape2D_y8ti4")
+
+[node name="endPoint" type="Node2D" parent="." unique_id=1214850722]
+position = Vector2(282, 250)

@@ -122,7 +122,7 @@ func _on_area_2d_hit_box_body_entered(body):
 		Global.health += 3
 		powered_up = true 
 
-func _on_timer_hurting_timeout() -> void:
+func _on_timer_hurting_timeout():
 	hurting = false
 	hurting_anim.play("idle")
 	

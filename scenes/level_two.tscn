@@ -49,7 +49,8 @@ texture_region_size = Vector2i(65, 65)
 
 [sub_resource type="TileSet" id="TileSet_5rfim"]
 tile_size = Vector2i(65, 65)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_843q2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t18mc"]
@@ -131,6 +132,7 @@ size = Vector2(520, 1264.5)
 [node name="leveltwo" type="Node2D" unique_id=1010535118]
 
 [node name="map" type="Node2D" parent="." unique_id=422776045]
+modulate = Color(0, 1, 0.8352941, 1)
 
 [node name="scrollingBackground" parent="map" unique_id=1827182102 instance=ExtResource("1_8cim8")]
 modulate = Color(1, 0.8039216, 0.99215686, 1)
@@ -139,6 +141,9 @@ position = Vector2(0, -100)
 [node name="tiles" type="Node2D" parent="map" unique_id=352831546]
 
 [node name="TileMapLayerground" type="TileMapLayer" parent="map/tiles" unique_id=2025043088]
+modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
+light_mask = 3
+visibility_layer = 3
 position = Vector2(-609, -115)
 scale = Vector2(1.4721903, 1.5074753)
 tile_set = SubResource("TileSet_5rfim")
@@ -173,6 +178,8 @@ position = Vector2(2356, 1412)
 shape = SubResource("RectangleShape2D_r4wdr")
 
 [node name="onewaystaticbody" type="StaticBody2D" parent="map/collisions" unique_id=591461224]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/collisions/onewaystaticbody" unique_id=1940651395]
 position = Vector2(1017.5, 398)
@@ -237,4 +244,4 @@ position = Vector2(5668, -186)
 shape = SubResource("RectangleShape2D_y8ti4")
 
 [node name="player" parent="." unique_id=918180083 instance=ExtResource("3_8lyp7")]
-position = Vector2(325, 311)
+position = Vector2(326, 311)

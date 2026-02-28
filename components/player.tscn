@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://c7jk1awdyyt7j" path="res://scripts/camera_2d.gd" id="3_couud"]
 [ext_resource type="AudioStream" uid="uid://cadsos2747456" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_hurt.ogg" id="4_couud"]
 [ext_resource type="AudioStream" uid="uid://d2x8do514bnis" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_jump.ogg" id="5_pir3r"]
-[ext_resource type="AudioStream" uid="uid://dapf2um1qsqte" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_bump.ogg" id="6_mm1xv"]
+[ext_resource type="AudioStream" uid="uid://p1rmjhep7w17" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Sounds/sfx_disappear.ogg" id="8_couud"]
 
 [sub_resource type="Animation" id="Animation_5rfim"]
 length = 0.001
@@ -251,6 +251,7 @@ radius = 40.0
 height = 122.0
 
 [node name="player" type="CharacterBody2D" unique_id=918180083 groups=["player"]]
+z_index = 5
 position = Vector2(37, 19)
 script = ExtResource("1_0lm1f")
 
@@ -296,6 +297,8 @@ libraries/ = SubResource("AnimationLibrary_unjau")
 [node name="areas" type="Node2D" parent="." unique_id=1105307404]
 
 [node name="Area2DHitBox" type="Area2D" parent="areas" unique_id=750972863 groups=["feet", "head", "player"]]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="areas/Area2DHitBox" unique_id=1599175158]
 position = Vector2(-34, -4)
@@ -323,8 +326,6 @@ debug_color = Color(0.41081372, 0.1494439, 0.5302662, 0.41960785)
 position = Vector2(-32, -7)
 position_smoothing_enabled = true
 script = ExtResource("3_couud")
-shake_amplitude = null
-shake_duratin = null
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1396794912]
 position = Vector2(-36, 40)
@@ -348,7 +349,7 @@ stream = ExtResource("4_couud")
 stream = ExtResource("5_pir3r")
 
 [node name="SfxBump" type="AudioStreamPlayer2D" parent="sounds" unique_id=948871155]
-stream = ExtResource("6_mm1xv")
+stream = ExtResource("8_couud")
 
 [connection signal="area_entered" from="areas/Area2DHitBox" to="." method="_on_area_2d_hit_box_area_entered"]
 [connection signal="body_entered" from="areas/Area2DHitBox" to="." method="_on_area_2d_hit_box_body_entered"]
