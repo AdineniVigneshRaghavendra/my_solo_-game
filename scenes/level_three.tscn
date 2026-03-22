@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6vq8cgcho7qw" path="res://components/flag.tscn" id="3_ol28e"]
 [ext_resource type="PackedScene" uid="uid://codoq6l1wb4yh" path="res://components/coin.tscn" id="5_87c5r"]
 [ext_resource type="PackedScene" uid="uid://2n35i0yghpdl" path="res://components/power_block.tscn" id="6_yguh4"]
+[ext_resource type="Script" uid="uid://c6vjo28bklt60" path="res://scripts/boss_areas.gd" id="7_yguh4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4i5uq"]
 texture = ExtResource("2_jyl00")
@@ -95,6 +96,8 @@ texture_region_size = Vector2i(65, 65)
 10:9/0 = 0
 10:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.5, -32.5, 32.5, -32.5, 32.5, 32.5, -32.5, 32.5)
 9:16/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.5, -32.5, 32.5, -32.5, 32.5, 32.5, -32.5, 32.5)
 
 [sub_resource type="TileSet" id="TileSet_5rfim"]
 tile_size = Vector2i(65, 65)
@@ -110,6 +113,9 @@ size = Vector2(7107, 189)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8ti4"]
 size = Vector2(520, 1264.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crxtl"]
+size = Vector2(213, 1320.25)
 
 [node name="levelthree" type="Node2D" unique_id=1010535118]
 
@@ -166,9 +172,6 @@ shape = SubResource("RectangleShape2D_y8ti4")
 [node name="flag" parent="." unique_id=79267359 instance=ExtResource("3_ol28e")]
 position = Vector2(-385, -109)
 
-[node name="player" parent="." unique_id=918180083 instance=ExtResource("3_jyl00")]
-position = Vector2(99, 311)
-
 [node name="coins" type="Node2D" parent="." unique_id=1585692260]
 
 [node name="coin" parent="coins" unique_id=525542148 instance=ExtResource("5_87c5r")]
@@ -187,3 +190,33 @@ position = Vector2(3419, -119)
 
 [node name="powerBlock" parent="blocks" unique_id=957169923 instance=ExtResource("6_yguh4")]
 position = Vector2(81, 121)
+
+[node name="bossAreas" type="Node2D" parent="." unique_id=1313424444]
+script = ExtResource("7_yguh4")
+
+[node name="TileMapLayerWalls" type="TileMapLayer" parent="bossAreas" unique_id=1543651552]
+visible = false
+position = Vector2(-609, -115)
+scale = Vector2(1.4721903, 1.5074753)
+tile_map_data = PackedByteArray("AAAMAAMAAAACAAEAAAANAAMAAAACAAEAAAAOAAMAAAACAAEAAAAMAAQAAAACAAEAAAANAAQAAAACAAEAAAAOAAQAAAACAAEAAAAhAAMAAAACAAEAAAAhAAQAAAACAAEAAAAiAAMAAAACAAEAAAAiAAQAAAACAAEAAAAjAAMAAAACAAEAAAAjAAQAAAACAAEAAAA=")
+tile_set = SubResource("TileSet_5rfim")
+collision_enabled = false
+
+[node name="Area2DStart" type="Area2D" parent="bossAreas" unique_id=885015059 groups=["bossFight"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bossAreas/Area2DStart" unique_id=2096228189]
+position = Vector2(1495.5, -99.125)
+shape = SubResource("RectangleShape2D_crxtl")
+
+[node name="Area2DEnd" type="Area2D" parent="bossAreas" unique_id=212846721 groups=["leaveFight"]]
+position = Vector2(1259, 36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bossAreas/Area2DEnd" unique_id=349198807]
+position = Vector2(1495.5, -99.125)
+shape = SubResource("RectangleShape2D_crxtl")
+
+[node name="camPoint" type="Node2D" parent="bossAreas" unique_id=483055786 groups=["bossView"]]
+position = Vector2(1722, 230)
+
+[node name="player" parent="." unique_id=918180083 instance=ExtResource("3_jyl00")]
+position = Vector2(99, 311)

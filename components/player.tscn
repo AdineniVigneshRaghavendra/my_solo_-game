@@ -324,6 +324,7 @@ debug_color = Color(0.41081372, 0.1494439, 0.5302662, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1306112800]
 position = Vector2(-32, -7)
+zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 script = ExtResource("3_couud")
 

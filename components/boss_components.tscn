@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dvclqi38414lw"]
+
+[ext_resource type="Script" uid="uid://dljwjgtyr7noe" path="res://scripts/boss.gd" id="1_5dme3"]
+[ext_resource type="Texture2D" uid="uid://cj6c44p3yyi2f" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-enemies-default.png" id="1_hiks4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dme3"]
+atlas = ExtResource("1_hiks4")
+region = Rect2(262, 264, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcpqa"]
+atlas = ExtResource("1_hiks4")
+region = Rect2(326, 264, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flth8"]
+atlas = ExtResource("1_hiks4")
+region = Rect2(131, 259, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubevi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dme3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcpqa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flth8")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_uibh7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p3jnq"]
+resource_name = "hurting"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 0.64705884), Color(1, 1, 1, 0.9843137), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w87rm"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dx7cp"]
+_data = {
+&"RESET": SubResource("Animation_uibh7"),
+&"hurting": SubResource("Animation_p3jnq"),
+&"idle": SubResource("Animation_w87rm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mphpq"]
+size = Vector2(113, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bahdc"]
+size = Vector2(93, 10.5)
+
+[node name="bossComponents" type="Node2D" unique_id=1954914415]
+
+[node name="boss" type="CharacterBody2D" parent="." unique_id=876889847 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5dme3")
+health = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="boss" unique_id=1412672841]
+clip_children = 2
+position = Vector2(1986, 321)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ubevi")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="ColorRect" type="ColorRect" parent="boss/AnimatedSprite2D" unique_id=595175966]
+clip_children = 2
+offset_left = -34.5
+offset_top = -38.5
+offset_right = 28.5
+offset_bottom = 30.5
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="boss/AnimatedSprite2D" unique_id=2054055048]
+libraries/ = SubResource("AnimationLibrary_dx7cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss" unique_id=1045836298]
+position = Vector2(1981.5, 324.5)
+shape = SubResource("RectangleShape2D_mphpq")
+
+[node name="Area2D" type="Area2D" parent="boss" unique_id=851763462]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boss/Area2D" unique_id=1879211476]
+position = Vector2(1981, 269)
+shape = SubResource("RectangleShape2D_bahdc")
+
+[node name="Timer" type="Timer" parent="boss" unique_id=1342035283]
+
+[node name="spots" type="Node2D" parent="." unique_id=1311838130]
+
+[node name="spots1" type="Node2D" parent="spots" unique_id=676716173]
+position = Vector2(1069, 304)
+
+[node name="spots2" type="Node2D" parent="spots" unique_id=1817846117]
+position = Vector2(1498, 304)
+
+[node name="spots3" type="Node2D" parent="spots" unique_id=111854315]
+position = Vector2(1989, 304)
+
+[node name="spots4" type="Node2D" parent="spots" unique_id=1167827926]
+position = Vector2(2349, 304)
+
+[connection signal="area_entered" from="boss/Area2D" to="boss" method="_on_area_2d_area_entered"]
