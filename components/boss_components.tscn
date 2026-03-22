@@ -99,10 +99,7 @@ size = Vector2(93, 10.5)
 [node name="bossComponents" type="Node2D" unique_id=1954914415]
 
 [node name="boss" type="CharacterBody2D" parent="." unique_id=876889847 groups=["enemy"]]
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_5dme3")
-health = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="boss" unique_id=1412672841]
 clip_children = 2
@@ -147,6 +144,7 @@ position = Vector2(1498, 304)
 position = Vector2(1989, 304)
 
 [node name="spots4" type="Node2D" parent="spots" unique_id=1167827926]
-position = Vector2(2349, 304)
+position = Vector2(2222, 304)
 
 [connection signal="area_entered" from="boss/Area2D" to="boss" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="boss/Timer" to="boss" method="_on_timer_timeout"]
