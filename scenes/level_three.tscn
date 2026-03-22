@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://codoq6l1wb4yh" path="res://components/coin.tscn" id="5_87c5r"]
 [ext_resource type="PackedScene" uid="uid://2n35i0yghpdl" path="res://components/power_block.tscn" id="6_yguh4"]
 [ext_resource type="Script" uid="uid://c6vjo28bklt60" path="res://scripts/boss_areas.gd" id="7_yguh4"]
+[ext_resource type="PackedScene" uid="uid://dvclqi38414lw" path="res://components/boss_components.tscn" id="8_crxtl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4i5uq"]
 texture = ExtResource("2_jyl00")
@@ -221,3 +222,5 @@ position = Vector2(1722, 230)
 
 [node name="player" parent="." unique_id=918180083 instance=ExtResource("3_jyl00")]
 position = Vector2(116, 307)
+
+[node name="bossComponents" parent="." unique_id=1487234287 instance=ExtResource("8_crxtl")]
