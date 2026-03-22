@@ -253,8 +253,6 @@ height = 122.0
 [node name="player" type="CharacterBody2D" unique_id=918180083 groups=["player"]]
 z_index = 5
 position = Vector2(37, 19)
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_0lm1f")
 
 [node name="effects" type="Node2D" parent="." unique_id=890011036]
@@ -325,6 +323,7 @@ shape = SubResource("CapsuleShape2D_uapwn")
 debug_color = Color(0.41081372, 0.1494439, 0.5302662, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1306112800]
+visible = false
 position = Vector2(-32, -7)
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
