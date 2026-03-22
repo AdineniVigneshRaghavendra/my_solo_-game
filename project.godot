@@ -11,12 +11,17 @@ config_version=5
 [application]
 
 config/name="milkyway_game"
+run/main_scene="uid://bevgb188c663h"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*uid://b0htbe36gnfrv"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

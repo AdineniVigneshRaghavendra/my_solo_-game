@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 300.0
-@export var jump_velocity: float = -800.0
+@export var jump_velocity: float = -700.0
 @export var gravity: float = 1400.0
 
 @onready var player_sprite: AnimatedSprite2D = $body/AnimatedSprite2D
@@ -75,7 +75,7 @@ func _process(delta):
 	if powered_up == true:
 		Global.active_power_up = true
 		player_sprite = player_sprite_powered_up
-		speed = 1000.0
+		speed = 400.0
 		$body/AnimatedSprite2D.visible = false
 		player_sprite.visible = true
 	else:

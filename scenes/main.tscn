@@ -22,7 +22,7 @@ sources/0 = SubResource("TileSetAtlasSource_sugp2")
 font_size = 94
 outline_size = 30
 outline_color = Color(0, 0, 0, 1)
-shadow_size = 30
+shadow_size = 7
 
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
 font_size = 25
@@ -70,11 +70,10 @@ tile_map_data = PackedByteArray("AAD//wgAAAAEAAkAAAAAAAgAAAAEAAkAAAABAAgAAAAEAAk
 tile_set = SubResource("TileSet_jyhfs")
 
 [node name="Label" type="Label" parent="ui/menu" unique_id=585233193]
-offset_left = -3.0
-offset_top = 3.0
-offset_right = 1153.0
-offset_bottom = 400.0
-text = "Little mushroom"
+offset_left = -23.0
+offset_top = 8.0
+offset_right = 733.0
+offset_bottom = 148.0
 label_settings = SubResource("LabelSettings_jyhfs")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -109,7 +108,7 @@ theme_type_variation = &"FlatButton"
 theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
 
 [node name="levelone" type="Node2D" parent="ui/menu" unique_id=1197390171]
-position = Vector2(52, 345)
+position = Vector2(31, 235)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ui/menu/levelone" unique_id=1314712578]
 offset_left = 1.0
@@ -139,7 +138,7 @@ theme_type_variation = &"FlatButton"
 theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
 
 [node name="leveltwo" type="Node2D" parent="ui/menu" unique_id=66846242]
-position = Vector2(412, 347)
+position = Vector2(417, 239)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ui/menu/leveltwo" unique_id=357542885]
 offset_left = 1.0
@@ -169,7 +168,7 @@ theme_type_variation = &"FlatButton"
 theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
 
 [node name="levelthree" type="Node2D" parent="ui/menu" unique_id=1413363404]
-position = Vector2(777, 347)
+position = Vector2(793, 231)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ui/menu/levelthree" unique_id=845132266]
 offset_left = 1.0
@@ -193,8 +192,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="buttonlevel3" type="Button" parent="ui/menu/levelthree" unique_id=629060368]
+offset_top = 3.0
 offset_right = 275.0
-offset_bottom = 91.0
+offset_bottom = 94.0
 theme_type_variation = &"FlatButton"
 theme_override_styles/focus = SubResource("StyleBoxFlat_85g3d")
 

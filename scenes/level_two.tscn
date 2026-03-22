@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bb31tn2qovb2w" path="res://components/player.tscn" id="3_8lyp7"]
 [ext_resource type="PackedScene" uid="uid://b6vq8cgcho7qw" path="res://components/flag.tscn" id="3_kkfyh"]
 [ext_resource type="PackedScene" uid="uid://codoq6l1wb4yh" path="res://components/coin.tscn" id="5_4yacq"]
+[ext_resource type="PackedScene" uid="uid://2n35i0yghpdl" path="res://components/power_block.tscn" id="6_kp5rg"]
+[ext_resource type="PackedScene" uid="uid://c5ew2j17ucci5" path="res://components/basic_block.tscn" id="7_1e7uk"]
+[ext_resource type="PackedScene" uid="uid://dexifo332nmr8" path="res://components/bee_enemy.tscn" id="8_ubnpl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_843q2"]
 texture = ExtResource("2_8lyp7")
@@ -288,3 +291,31 @@ position = Vector2(2937.5, -74.5)
 
 [node name="coin10" parent="coins" unique_id=62692571 instance=ExtResource("5_4yacq")]
 position = Vector2(2716.5, -77)
+
+[node name="powerblock" type="Node2D" parent="." unique_id=1798735467]
+
+[node name="powerBlock" parent="powerblock" unique_id=957169923 instance=ExtResource("6_kp5rg")]
+position = Vector2(80, 84)
+
+[node name="basicBlock" parent="powerblock" unique_id=119098011 instance=ExtResource("7_1e7uk")]
+position = Vector2(1447, 620)
+
+[node name="basicBlock4" parent="powerblock" unique_id=1152551007 instance=ExtResource("7_1e7uk")]
+position = Vector2(2065, 618)
+
+[node name="basicBlock2" parent="powerblock" unique_id=1839336625 instance=ExtResource("7_1e7uk")]
+position = Vector2(2180, 516)
+
+[node name="basicBlock3" parent="powerblock" unique_id=771285221 instance=ExtResource("7_1e7uk")]
+position = Vector2(2947, 525)
+
+[node name="enemies" type="Node2D" parent="." unique_id=617713640]
+
+[node name="beeEnemy" parent="enemies" unique_id=956766787 instance=ExtResource("8_ubnpl")]
+position = Vector2(1053, 699)
+
+[node name="beeEnemy2" parent="enemies" unique_id=745553364 instance=ExtResource("8_ubnpl")]
+position = Vector2(3838, 727)
+
+[node name="beeEnemy3" parent="enemies" unique_id=881973219 instance=ExtResource("8_ubnpl")]
+position = Vector2(2693, -15)

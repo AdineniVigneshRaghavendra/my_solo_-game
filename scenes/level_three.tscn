@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dm4ac08sxg0ib" path="res://art/Godot_v4.6.1-stable_linux.x86_64/Spritesheets/spritesheet-tiles-default.png" id="2_jyl00"]
 [ext_resource type="PackedScene" uid="uid://bb31tn2qovb2w" path="res://components/player.tscn" id="3_jyl00"]
 [ext_resource type="PackedScene" uid="uid://b6vq8cgcho7qw" path="res://components/flag.tscn" id="3_ol28e"]
+[ext_resource type="PackedScene" uid="uid://codoq6l1wb4yh" path="res://components/coin.tscn" id="5_87c5r"]
+[ext_resource type="PackedScene" uid="uid://2n35i0yghpdl" path="res://components/power_block.tscn" id="6_yguh4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4i5uq"]
 texture = ExtResource("2_jyl00")
@@ -166,3 +168,22 @@ position = Vector2(-385, -109)
 
 [node name="player" parent="." unique_id=918180083 instance=ExtResource("3_jyl00")]
 position = Vector2(99, 311)
+
+[node name="coins" type="Node2D" parent="." unique_id=1585692260]
+
+[node name="coin" parent="coins" unique_id=525542148 instance=ExtResource("5_87c5r")]
+position = Vector2(3237, -121)
+
+[node name="coin2" parent="coins" unique_id=707113189 instance=ExtResource("5_87c5r")]
+position = Vector2(3793, -111)
+
+[node name="coin3" parent="coins" unique_id=2059784154 instance=ExtResource("5_87c5r")]
+position = Vector2(3605, -121)
+
+[node name="coin4" parent="coins" unique_id=1793646118 instance=ExtResource("5_87c5r")]
+position = Vector2(3419, -119)
+
+[node name="blocks" type="Node2D" parent="." unique_id=1006850475]
+
+[node name="powerBlock" parent="blocks" unique_id=957169923 instance=ExtResource("6_yguh4")]
+position = Vector2(81, 121)
