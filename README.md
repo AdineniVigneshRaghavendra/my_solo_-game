@@ -1,5 +1,7 @@
 # Little Mushroom 🍄🎮
 
+![Little Mushroom](file_00000000a2c871fa912d67c1b4cb5011.png)
+
 Little Mushroom is inspired from Mario. It's a funny platformer game.  
 It took too much time for finishing this as it my first game so faced a lot of bugs but fixed them by taking my time.
 
